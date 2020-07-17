@@ -11,8 +11,9 @@ import com.example.testapplication.R;
 
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 
@@ -39,6 +40,8 @@ public class RecyclerActivity extends FragmentActivity implements LifecycleOwner
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_xml);
         recyclerView = findViewById(R.id.rv_main);
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.GRID));
         progressBarCenter = findViewById(R.id.progressBarCenter);
         viewModel = ViewModelProviders.of(RecyclerActivity.this).get(MainViewModel.class);
         viewModel.getUserMutableLiveData().observe(RecyclerActivity.this, userListUpdateObserver);
@@ -50,7 +53,6 @@ public class RecyclerActivity extends FragmentActivity implements LifecycleOwner
         @Override
         public void onChanged(ArrayList<User> userArrayList) {
             recyclerViewAdapter = new RecyclerViewAdapter(RecyclerActivity.this,userArrayList);
-            recyclerView.setLayoutManager(new LinearLayoutManager(RecyclerActivity.this));
             recyclerView.setAdapter(recyclerViewAdapter);
             progressBarCenter.setVisibility(View.GONE);
         }

@@ -30,7 +30,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rootView = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
+        View rootView = LayoutInflater.from(context).inflate(R.layout.item_grid, parent, false);
         return new RecyclerViewViewHolder(rootView);
     }
 
@@ -43,7 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         viewHolder.txtView_name.setText(user.getName());
         viewHolder.txtView_email.setText(user.getEmail());
         viewHolder.txtView_position.setText(user.getPosition());
-        Glide.with(context).load(user.getPhoto()).centerCrop().into(viewHolder.imgView_icon);
+        Glide.with(context).load(user.getPhoto()).fitCenter().into(viewHolder.imgView_icon);
     }
 
     @Override
