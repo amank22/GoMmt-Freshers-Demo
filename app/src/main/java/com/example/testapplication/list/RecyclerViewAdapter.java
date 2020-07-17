@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.example.testapplication.R;
 
 import androidx.annotation.NonNull;
@@ -41,6 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         viewHolder.txtView_name.setText(user.getName());
         viewHolder.txtView_email.setText(user.getEmail());
         viewHolder.txtView_position.setText(user.getPosition());
+        Glide.with(context).load(user.getPhoto()).centerCrop().into(viewHolder.imgView_icon);
     }
 
     @Override

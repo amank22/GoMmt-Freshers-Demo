@@ -6,41 +6,41 @@
 
     <ImageView
         android:id="@+id/imgView_icon"
-        android:layout_width="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:padding="3dp"
-        android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher_background" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
         android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtView_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#000"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="Title" />
+            android:text="Title"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtView_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="Title" />
+            android:text="Title"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/txtView_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="Title" />
+            android:text="Title"
+            android:textSize="15sp" />
 
     </LinearLayout>
 </LinearLayout>
