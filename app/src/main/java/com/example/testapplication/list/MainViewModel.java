@@ -28,8 +28,8 @@ public class MainViewModel extends ViewModel {
     public ArrayList<User> getData(){
 
         User user = new User();
-        user.setTitle("Darknight");
-        user.setDescription("Best rating movie");
+        user.setName("Darknight");
+        user.setEmail("Best rating movie");
 
         ArrayList<User> userArrayList = new ArrayList<>();
         userArrayList.add(user);

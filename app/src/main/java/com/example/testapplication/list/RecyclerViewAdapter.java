@@ -38,8 +38,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         User user = userArrayList.get(position);
         RecyclerViewViewHolder viewHolder= (RecyclerViewViewHolder) holder;
 
-        viewHolder.txtView_title.setText(user.getTitle());
-        viewHolder.txtView_description.setText(user.getDescription());
+        viewHolder.txtView_title.setText(user.getName());
+        viewHolder.txtView_description.setText(user.getEmail());
     }
 
     @Override

@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-class RecyclerActivity extends FragmentActivity implements LifecycleOwner {
+public class RecyclerActivity extends FragmentActivity implements LifecycleOwner {
 
 
     /*

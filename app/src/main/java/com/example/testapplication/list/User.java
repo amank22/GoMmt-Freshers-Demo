@@ -1,32 +1,41 @@
 package com.example.testapplication.list;
 
 public class User {
-    private String title;
-    private String description;
-    private String imgIcon;
+    private String name;
+    private String email;
+    private String position;
+    private String photo;
 
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getImgIcon() {
-        return imgIcon;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setImgIcon(String imgIcon) {
-        this.imgIcon = imgIcon;
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 }
