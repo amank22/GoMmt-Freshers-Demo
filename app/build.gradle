@@ -44,5 +44,7 @@ dependencies {
 
     // We add the retrofit library first
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    // Adding gson. Lifesaver.
+    implementation 'com.google.code.gson:gson:2.8.6'
 
 }
