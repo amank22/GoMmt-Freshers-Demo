@@ -1,4 +1,4 @@
-package com.example.testapplication.List;
+package com.example.testapplication.list;
 
 public class User {
     private String title;
