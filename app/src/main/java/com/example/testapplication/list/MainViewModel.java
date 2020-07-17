@@ -1,17 +1,30 @@
 package com.example.testapplication.list;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+
+import com.example.testapplication.network.AppNetworkFetcher;
+import com.example.testapplication.network.FacesApiHttpUrlHelper;
+import com.example.testapplication.network.NetworkResponseCallback;
+import com.example.testapplication.utility.AppConstants;
 
 import java.util.ArrayList;
 
 public class MainViewModel extends ViewModel {
 
+    private static final String TAG = "MainViewModel";
     MutableLiveData<ArrayList<User>> userLiveData;
+    private AppNetworkFetcher appNetworkFetcher;
 
     public MainViewModel() {
         userLiveData = new MutableLiveData<>();
+
+        // Creating an object of AppNetworkFetcher. We can use either HttpUrlConnection or some library.
+        appNetworkFetcher = new FacesApiHttpUrlHelper();
+
         // call your Rest API in init method
         init();
     }
@@ -21,24 +34,21 @@ public class MainViewModel extends ViewModel {
     }
 
     public void init(){
-        ArrayList<User>  userArrayList = getData();
-        userLiveData.setValue(userArrayList);
+        getData();
     }
 
-    public ArrayList<User> getData(){
+    public void getData(){
+        // We called out network request method here.
+        appNetworkFetcher.doGetRequest(AppConstants.UI_FACES_API_URL, new NetworkResponseCallback() {
+            @Override
+            public void onResponseSuccess(ArrayList<User> users) {
+                userLiveData.postValue(users);
+            }
 
-        User user = new User();
-        user.setName("Darknight");
-        user.setEmail("Best rating movie");
-
-        ArrayList<User> userArrayList = new ArrayList<>();
-        userArrayList.add(user);
-        userArrayList.add(user);
-        userArrayList.add(user);
-        userArrayList.add(user);
-        userArrayList.add(user);
-        userArrayList.add(user);
-
-        return userArrayList;
+            @Override
+            public void onResponseFailed(Throwable e) {
+                Log.d(TAG, "onResponseFailed() called with: e = [" + e + "]");
+            }
+        });
     }
 }

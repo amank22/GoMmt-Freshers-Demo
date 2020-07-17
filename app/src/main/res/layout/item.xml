@@ -19,15 +19,24 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtView_title"
+            android:id="@+id/txtView_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="#000"
+            android:fontFamily="sans-serif-condensed-medium"
             android:text="Title" />
 
         <TextView
-            android:id="@+id/txtView_description"
+            android:id="@+id/txtView_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="Title" />
+
+        <TextView
+            android:id="@+id/txtView_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"

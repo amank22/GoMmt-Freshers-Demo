@@ -59,6 +59,7 @@ public class FacesApiHttpUrlHelper implements AppNetworkFetcher {
             URL url = new URL(urlString);
             // Opens a new connection to this URL. Does a network call
             urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestProperty(AppConstants.UI_FACES_API_AUTH_HEADER, AppConstants.UI_FACES_API_KEY);
             // Gets a response code
             int code = urlConnection.getResponseCode();
             // We are happy with 200 else throw an error of invalid response.

@@ -38,8 +38,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         User user = userArrayList.get(position);
         RecyclerViewViewHolder viewHolder= (RecyclerViewViewHolder) holder;
 
-        viewHolder.txtView_title.setText(user.getName());
-        viewHolder.txtView_description.setText(user.getEmail());
+        viewHolder.txtView_name.setText(user.getName());
+        viewHolder.txtView_email.setText(user.getEmail());
+        viewHolder.txtView_position.setText(user.getPosition());
     }
 
     @Override
@@ -49,14 +50,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     class RecyclerViewViewHolder extends RecyclerView.ViewHolder {
         ImageView imgView_icon;
-        TextView txtView_title;
-        TextView txtView_description;
+        TextView txtView_name;
+        TextView txtView_email;
+        TextView txtView_position;
 
         public RecyclerViewViewHolder(@NonNull View itemView) {
             super(itemView);
             imgView_icon = itemView.findViewById(R.id.imgView_icon);
-            txtView_title = itemView.findViewById(R.id.txtView_title);
-            txtView_description = itemView.findViewById(R.id.txtView_description);
+            txtView_name = itemView.findViewById(R.id.txtView_name);
+            txtView_email = itemView.findViewById(R.id.txtView_email);
+            txtView_position = itemView.findViewById(R.id.txtView_position);
 
 
         }

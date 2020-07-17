@@ -4,7 +4,7 @@ import com.example.testapplication.list.User;
 
 import java.util.ArrayList;
 
-interface NetworkResponseCallback {
+public interface NetworkResponseCallback {
 
     void onResponseSuccess(ArrayList<User> users);
     void onResponseFailed(Throwable e);
