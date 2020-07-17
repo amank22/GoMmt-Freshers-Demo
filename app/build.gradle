@@ -23,6 +23,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -44,6 +49,7 @@ dependencies {
 
     // We add the retrofit library first
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     // Adding gson. Lifesaver.
     implementation 'com.google.code.gson:gson:2.8.6'
 

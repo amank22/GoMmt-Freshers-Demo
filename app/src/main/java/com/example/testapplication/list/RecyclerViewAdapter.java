@@ -30,7 +30,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rootView = LayoutInflater.from(context).inflate(R.layout.item,parent,false);
+        View rootView = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
         return new RecyclerViewViewHolder(rootView);
     }
 
@@ -38,7 +38,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         User user = userArrayList.get(position);
-        RecyclerViewViewHolder viewHolder= (RecyclerViewViewHolder) holder;
+        RecyclerViewViewHolder viewHolder = (RecyclerViewViewHolder) holder;
 
         viewHolder.txtView_name.setText(user.getName());
         viewHolder.txtView_email.setText(user.getEmail());
@@ -48,7 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemCount() {
-        return userArrayList.size();
+        return userArrayList == null ? 0 : userArrayList.size();
     }
 
     class RecyclerViewViewHolder extends RecyclerView.ViewHolder {
