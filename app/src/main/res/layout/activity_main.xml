@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+    android:orientation="vertical"
+  tools:context=".MainActivity">
+
+  <com.example.testapplication.CustomView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
+
+  <LinearLayout
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:orientation="vertical"/>
+
+  <ImageView
+      android:layout_height="100dp"
+      android:layout_width="100dp"
+      android:background="@color/colorAccent"
+      android:visibility="gone"/>
+
+  <TextView android:id="@+id/firstTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello World!"
+     />
+  <TextView
+      android:id="@+id/secondTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Hello World!"
+      android:background="@color/colorAccent"
+      android:layout_toRightOf="@+id/firstTextView"
+      />
+  <TextView
+      android:id="@+id/ThirdTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Hello World!"
+      android:layout_centerInParent="true"
+      />
+
+</RelativeLayout>
