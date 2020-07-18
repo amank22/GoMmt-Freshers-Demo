@@ -43,6 +43,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         viewHolder.txtView_name.setText(user.getName());
         viewHolder.txtView_email.setText(user.getEmail());
         viewHolder.txtView_position.setText(user.getPosition());
+        //This is how we load an image using Glide library
         Glide.with(context).load(user.getPhoto()).fitCenter().into(viewHolder.imgView_icon);
     }
 

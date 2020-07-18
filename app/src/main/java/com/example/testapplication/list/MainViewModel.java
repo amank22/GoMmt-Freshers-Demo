@@ -1,7 +1,13 @@
 package com.example.testapplication.list;
 
+import android.app.Application;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -14,14 +20,15 @@ import com.example.testapplication.utility.AppConstants;
 
 import java.util.ArrayList;
 
-public class MainViewModel extends ViewModel {
+public class MainViewModel extends AndroidViewModel {
 
     private static final String TAG = "MainViewModel";
     MutableLiveData<ArrayList<User>> userLiveData;
     private boolean isUsingLibrary = true;
     private AppNetworkFetcher appNetworkFetcher;
 
-    public MainViewModel() {
+    public MainViewModel(@NonNull Application application) {
+        super(application);
         userLiveData = new MutableLiveData<>();
 
         // Creating an object of AppNetworkFetcher. We can use either HttpUrlConnection or some library.
@@ -44,6 +51,11 @@ public class MainViewModel extends ViewModel {
     }
 
     public void getData(){
+        if (!isInternetConnected()) {
+            userLiveData.postValue(null);
+            Log.d(TAG, "Internet is not connected");
+            return;
+        }
         // We called out network request method here.
         final String url = AppConstants.UI_FACES_API_URL_BASE + AppConstants.UI_FACES_API_PATH;
         appNetworkFetcher.doGetRequest(url, new NetworkResponseCallback() {
@@ -54,8 +66,21 @@ public class MainViewModel extends ViewModel {
 
             @Override
             public void onResponseFailed(Throwable e) {
+                userLiveData.postValue(null);
                 Log.d(TAG, "onResponseFailed() called with: e = [" + e + "]");
             }
         });
+    }
+
+    boolean isInternetConnected() {
+        final ConnectivityManager conMgr = (ConnectivityManager) getApplication().getSystemService(Context.CONNECTIVITY_SERVICE);
+        final NetworkInfo activeNetwork = conMgr.getActiveNetworkInfo();
+        if (activeNetwork != null && activeNetwork.isConnected()) {
+            // notify user you are online
+            return true;
+        } else {
+            // notify user you are not online
+            return false;
+        }
     }
 }
