@@ -24,7 +24,7 @@ public class MainViewModel extends AndroidViewModel {
 
     private static final String TAG = "MainViewModel";
     MutableLiveData<ArrayList<User>> userLiveData;
-    private boolean isUsingLibrary = true;
+    private boolean isUsingLibrary = false;
     private AppNetworkFetcher appNetworkFetcher;
 
     public MainViewModel(@NonNull Application application) {

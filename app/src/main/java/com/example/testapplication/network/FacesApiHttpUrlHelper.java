@@ -25,12 +25,12 @@ public class FacesApiHttpUrlHelper implements AppNetworkFetcher {
     public void doGetRequest(final String urlString, final NetworkResponseCallback responseCallback) {
         // So we can only run network calls on background thread and not on main thread.
         // We could use AsyncTasks but they are deprecated so we are using Executors.
-        AppConstants.executor.execute(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 startGetRequest(urlString, responseCallback);
             }
-        });
+        }).start();
     }
 
     private void startGetRequest(String urlString, NetworkResponseCallback responseCallback) {
